@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 270.93333 270.93334"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/edwinlee/Documents/Projects/HexapodController/icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     width="1024px"
+     inkscape:zoom="0.54425795"
+     inkscape:cx="313.27057"
+     inkscape:cy="554.88395"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3528">
+      <rect
+         style="fill:#242424;fill-opacity:1;stroke-width:1.3326;stroke-linecap:round;stop-color:#000000"
+         id="rect3530"
+         width="276.98196"
+         height="276.98196"
+         x="-273.77856"
+         y="-292.61942"
+         transform="scale(-1)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3532">
+      <rect
+         style="fill:#242424;fill-opacity:1;stroke-width:1.3035;stroke-linecap:round;stop-color:#000000"
+         id="rect3534"
+         width="270.93329"
+         height="270.93329"
+         x="-270.75424"
+         y="-271.58334" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1941">
+      <circle
+         style="fill:#ff0000;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+         id="circle1943"
+         cx="135.2876"
+         cy="136.11668"
+         r="135.46664" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1949">
+      <circle
+         style="fill:#ff0000;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+         id="circle1951"
+         cx="135.2876"
+         cy="136.11668"
+         r="135.46664"
+         transform="scale(-1)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2072">
+      <circle
+         style="fill:#ff0000;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+         id="circle2074"
+         cx="135.2876"
+         cy="136.11668"
+         r="135.46664" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <rect
+       style="fill:#242424;fill-opacity:1;stroke-width:1.3035;stroke-linecap:round;stop-color:#000000"
+       id="rect992"
+       width="270.93332"
+       height="270.93332"
+       x="-270.75424"
+       y="-271.58337"
+       transform="scale(-1)"
+       clip-path="url(#clipPath1949)"
+       inkscape:export-filename="/home/edwinlee/Documents/Projects/HexapodController/icon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g1271"
+       transform="translate(-129.96354,-173.77446)">
+      <g
+         id="g2462"
+         transform="matrix(0.62956826,0,0,0.62956826,349.85966,43.367804)">
+        <circle
+           style="fill:#ffffff;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+           id="circle2454"
+           cx="86.374977"
+           cy="141.91837"
+           r="53.800579" />
+        <circle
+           style="fill:#2ab6ff;fill-opacity:1;stroke-width:0.802746;stroke-linecap:round;stop-color:#000000"
+           id="circle2456"
+           cx="86.374977"
+           cy="141.91837"
+           r="32.644135" />
+        <circle
+           style="fill:#000000;stroke-width:0.386815;stroke-linecap:round;stop-color:#000000"
+           id="circle2458"
+           cx="86.374977"
+           cy="141.91837"
+           r="15.730057" />
+        <circle
+           style="fill:#ffffff;fill-opacity:0.405241;stroke-width:0.198391;stroke-linecap:round;stop-color:#000000"
+           id="circle2460"
+           cx="97.757584"
+           cy="139.49046"
+           r="8.067688" />
+      </g>
+      <g
+         id="g3498"
+         transform="matrix(0.62956826,0,0,0.62956826,72.242866,43.367804)">
+        <circle
+           style="fill:#ffffff;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+           id="circle3490"
+           cx="86.374977"
+           cy="141.91837"
+           r="53.800579" />
+        <circle
+           style="fill:#2ab6ff;fill-opacity:1;stroke-width:0.802746;stroke-linecap:round;stop-color:#000000"
+           id="circle3492"
+           cx="86.374977"
+           cy="141.91837"
+           r="32.644135" />
+        <circle
+           style="fill:#000000;stroke-width:0.386815;stroke-linecap:round;stop-color:#000000"
+           id="circle3494"
+           cx="86.374977"
+           cy="141.91837"
+           r="15.730057" />
+        <circle
+           style="fill:#ffffff;fill-opacity:0.405241;stroke-width:0.198391;stroke-linecap:round;stop-color:#000000"
+           id="circle3496"
+           cx="97.757584"
+           cy="139.49046"
+           r="8.067688" />
+      </g>
+    </g>
+    <rect
+       style="display:inline;fill:#242424;fill-opacity:1;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+       id="rect2565"
+       width="270.93298"
+       height="270.93329"
+       x="-0.17874527"
+       y="0.65009308"
+       inkscape:export-filename="/home/edwinlee/Documents/Projects/HexapodController/icon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <g
+     id="g2706"
+     transform="matrix(1.1567616,0,0,1.1567616,-21.207892,-44.775459)"
+     clip-path="none"
+     inkscape:label="#g2706"
+     inkscape:export-filename="/home/edwinlee/Documents/Projects/HexapodController/icon.png"
+     inkscape:export-xdpi="96"
+     inkscape:export-ydpi="96">
+    <g
+       inkscape:groupmode="layer"
+       id="layer2"
+       inkscape:label="Layer 2" />
+    <g
+       id="g2494"
+       transform="matrix(1.0318928,0,0,1.0318928,11.122647,25.23942)">
+      <g
+         id="g2442"
+         transform="matrix(0.85182489,0,0,0.85182489,102.89641,-5.3815002)">
+        <circle
+           style="fill:#ffffff;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+           id="circle2434"
+           cx="86.374977"
+           cy="141.91837"
+           r="53.800579" />
+        <circle
+           style="fill:#ff972a;fill-opacity:1;stroke-width:0.802746;stroke-linecap:round;stop-color:#000000"
+           id="circle2436"
+           cx="86.374977"
+           cy="141.91837"
+           r="32.644135" />
+        <circle
+           style="fill:#000000;stroke-width:0.386815;stroke-linecap:round;stop-color:#000000"
+           id="circle2438"
+           cx="86.374977"
+           cy="141.91837"
+           r="15.730057" />
+        <circle
+           style="fill:#ffffff;fill-opacity:0.405241;stroke-width:0.198391;stroke-linecap:round;stop-color:#000000"
+           id="circle2440"
+           cx="97.757584"
+           cy="139.49046"
+           r="8.067688" />
+      </g>
+      <g
+         id="g3488"
+         transform="matrix(0.85182489,0,0,0.85182489,-9.0943529,-5.3815002)">
+        <circle
+           style="fill:#ffffff;stroke-width:1.323;stroke-linecap:round;stop-color:#000000"
+           id="circle3480"
+           cx="86.374977"
+           cy="141.91837"
+           r="53.800579" />
+        <circle
+           style="fill:#ff972a;fill-opacity:1;stroke-width:0.802746;stroke-linecap:round;stop-color:#000000"
+           id="circle3482"
+           cx="86.374977"
+           cy="141.91837"
+           r="32.644135" />
+        <circle
+           style="fill:#000000;stroke-width:0.386815;stroke-linecap:round;stop-color:#000000"
+           id="circle3484"
+           cx="86.374977"
+           cy="141.91837"
+           r="15.730057" />
+        <circle
+           style="fill:#ffffff;fill-opacity:0.405241;stroke-width:0.198391;stroke-linecap:round;stop-color:#000000"
+           id="circle3486"
+           cx="97.757584"
+           cy="139.49046"
+           r="8.067688" />
+      </g>
+    </g>
+    <g
+       id="g2666"
+       transform="matrix(0.80659887,0,0,0.80659887,23.908494,57.67318)">
+      <g
+         id="g2499"
+         transform="matrix(0.5915061,0,0,0.5915061,97.593266,154.62761)"
+         style="fill:#000000">
+        <title
+           id="title2496">Layer 1</title>
+        <path
+           id="svg_10"
+           d="m 53.01759,85.5 c -16.57459,0 -30,-15.88674 -30,-35.5 0,-19.61326 13.42541,-35.5 30,-35.5 16.57459,0 34,20.88674 17,41.5 -17,20.61326 -0.42541,29.5 -17,29.5 z"
+           opacity="undefined"
+           stroke-width="0"
+           stroke="#000000"
+           fill="#000000"
+           style="fill:#000000" />
+      </g>
+      <g
+         id="g2658"
+         transform="matrix(-0.5915061,0,0,0.5915061,178.57645,155.31511)"
+         style="fill:#000000">
+        <title
+           id="title2654">Layer 1</title>
+        <path
+           id="path2656"
+           d="m 53.01759,85.5 c -16.57459,0 -30,-15.88674 -30,-35.5 0,-19.61326 13.42541,-35.5 30,-35.5 16.57459,0 34,20.88674 17,41.5 -17,20.61326 -0.42541,29.5 -17,29.5 z"
+           opacity="undefined"
+           stroke-width="0"
+           stroke="#000000"
+           fill="#000000"
+           style="fill:#000000" />
+      </g>
+    </g>
+  </g>
+</svg>
