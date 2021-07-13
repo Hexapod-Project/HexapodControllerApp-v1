@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
 import { BUFFER_LEN } from '../App';
 import Leg, { LEG_H } from './Leg';
@@ -11,14 +11,13 @@ const Y_OFFSET = 10;
 const X_OFFSET = 50;
 const FIRSTLASTOPT_TOP_OFFSET = 14;
 
-export default function LegSelector({ style, options = [], startIdx = 0, maxAngle = Math.PI / 2, padAngle = 0.157, isFlip = false, addData, dataFirstIndex=1 }) {
-    if (startIdx >= options.length)
-        startIdx = options.length - 1;
+export default function LegSelector({ style, options = [], selected = 0, maxAngle = Math.PI / 2, padAngle = 0.157, isFlip = false, addData, updateSelected, dataFirstIndex = 1 }) {
+    if (selected >= options.length)
+        selected = options.length - 1;
 
     const gapRadian = options.length > 0 ? (maxAngle - padAngle) / (options.length - 1) : Math.PI / 4;
-    const [selected, setSelected] = useState(startIdx <= options.length - 1 ? startIdx : 0);
 
-    let startLegRad = gapRadian * startIdx;
+    let startLegRad = gapRadian * selected;
     if (isFlip) startLegRad = -startLegRad;
 
     const legRadAnim = useRef(new Animated.Value(startLegRad)).current;
@@ -26,7 +25,7 @@ export default function LegSelector({ style, options = [], startIdx = 0, maxAngl
     legRadAnim.addListener(({ value }) => setLegRad(value));
 
     const setSelectedAndAddData = idx => {
-        setSelected(idx);
+        updateSelected(idx);
 
         const data = Buffer(BUFFER_LEN);
         data[BUFFER_LEN - 1] = dataFirstIndex + idx;
@@ -53,6 +52,10 @@ export default function LegSelector({ style, options = [], startIdx = 0, maxAngl
             useNativeDriver: false
         }).start();
     }
+
+    useLayoutEffect(() => {
+        setLegRadAnim(startLegRad);
+    }, [selected])
 
     //Create options
     const optionTouchables = options.map((value, idx) => {

@@ -3,11 +3,11 @@ import { StyleSheet, Text } from 'react-native';
 import Fangs from './components/Fangs';
 import JoystickCluster from './components/JoystickCluster';
 import LegSelector from './components/LegSelector';
-import Leg, { LEG_W, LEG_H } from './components/Leg'
+import { LEG_W, LEG_H } from './components/Leg'
 import BluetoothBtn from './components/BluetoothBtn';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { displayName, btAddr } from './app.json';
-import RNBluetoothClassic from 'react-native-bluetooth-classic';
+import RNBluetoothClassic, { BluetoothDevice, BluetoothDeviceReadEvent } from 'react-native-bluetooth-classic';
 import AutoRotateBtn from './components/AutoRotateBtn';
 
 export const BTSTATES = {
@@ -29,8 +29,10 @@ export const BTDATA_STATES = {
 export const BUFFER_LEN = 5;
 
 const SENDDATA_INTERVAL = 20;
+const REQUEST_STATES_FLAG = 255;
+const HEXXO_STATES_HEADER = "HS";
 
-let btEnabledSub, btDisableSub, btDevConnectedSub, btErrorSub;
+let btEnabledSub, btDisableSub, btDevConnectedSub, btErrorSub, btReadSub;
 
 const initBluetooth = async (setBtState) => {
 
@@ -57,8 +59,9 @@ const initBluetooth = async (setBtState) => {
   btEnabledSub = RNBluetoothClassic.onBluetoothEnabled(e => {
     //If bluetooth is connected to Hexxo
     RNBluetoothClassic.isDeviceConnected(btAddr).then(isConnected => {
-      if (isConnected)
+      if (isConnected) {
         setBtState(BTSTATES.CONNECTED);
+      }
       else
         setBtState(BTSTATES.DISCONNECTED);
     }).catch(err => console.log(err));
@@ -74,14 +77,55 @@ const initBluetooth = async (setBtState) => {
 class App extends React.Component {
   state = {
     btState: BTSTATES.DISCONNECTED,
-    autoRotate: true
+    autoRotate: true,
+    hexxoStates: { gait: 0, stance: 1 }
   }
 
   databuffer = [];
   lastSentBuffer = Buffer(0);
+  /**@type{BluetoothDevice} */
+  connectedDevice;
 
   setBtState = (btState, callback) => {
-    this.setState({ btState }, callback);
+    this.setState({ btState }, async () => {
+      if (btState === BTSTATES.CONNECTED) {
+        try {
+          console.log("Connected to Hexxo!");
+          this.connectedDevice = await RNBluetoothClassic.getConnectedDevice(btAddr);
+          this.connectedDevice.onDataReceived(this.onDataReceived);
+          this.syncWithHexxo();
+
+          if (callback)
+            callback();
+
+        } catch (err) {
+          console.log("Failed to get connected device.", err);
+        }
+      }
+    });
+  }
+
+  syncWithHexxo = () => {
+    const buffer = Buffer(BUFFER_LEN);
+    buffer[BUFFER_LEN - 1] = REQUEST_STATES_FLAG;
+
+    this.connectedDevice.write(buffer).catch(err => console.log(err));
+  }
+
+  /**   
+   * @param {BluetoothDeviceReadEvent} readEvt 
+   */
+  onDataReceived = readEvt => {
+    const segments = readEvt.data.split("|");
+    if (segments[0] === HEXXO_STATES_HEADER) {      
+      this.updateHexxoStates({ gait: segments[1] - BTDATA_STATES.TRIPOD, stance: segments[2] - BTDATA_STATES.RISE });
+    }
+  }
+
+  updateHexxoStates = hexxoStates => {
+    if (Object.keys(hexxoStates).some(key => hexxoStates[key] !== this.state.hexxoStates[key])) {      
+      this.setState({ hexxoStates });
+    }
   }
 
   /**   
@@ -134,12 +178,16 @@ class App extends React.Component {
     return (
       <SafeAreaProvider style={styles.layout}>
         <BluetoothBtn style={styles.bluetoothBtn} btState={this.state.btState} setBtState={this.setBtState} />
-        <AutoRotateBtn style={styles.naturalWalkBtn} autoRotState={this.state.autoRotate} onPress={this.setAutoRotate} />
+        {/* <AutoRotateBtn style={styles.naturalWalkBtn} autoRotState={this.state.autoRotate} onPress={this.setAutoRotate} /> */}
         <Text style={styles.name}>{displayName}</Text>
-        <JoystickCluster style={styles.joystickCluster} btState={this.state.btState} addData={this.addData} databuffer={this.databuffer}/>
+        <JoystickCluster style={styles.joystickCluster} btState={this.state.btState} addData={this.addData} databuffer={this.databuffer} />
         <Fangs style={styles.fangs} />
-        <LegSelector style={styles.leftleg} options={["Tripod", "Triple", "Wave", "Ripple"]} addData={this.addData} />
-        <LegSelector style={styles.rightleg} options={["Rise", "Crouch"]} startIdx={1} isFlip={true} addData={this.addData} dataFirstIndex={5} />
+
+        <LegSelector style={styles.leftleg} options={["Tripod", "Triple", "Wave", "Ripple"]} selected={this.state.hexxoStates.gait}
+          updateSelected={gait => this.updateHexxoStates({ ...this.state.hexxoStates, gait })} addData={this.addData} />
+
+        <LegSelector style={styles.rightleg} options={["Rise", "Crouch"]} selected={this.state.hexxoStates.stance} isFlip={true}
+          updateSelected={stance => this.updateHexxoStates({ ...this.state.hexxoStates, stance })} addData={this.addData} dataFirstIndex={5} />
       </SafeAreaProvider>
     );
   }
