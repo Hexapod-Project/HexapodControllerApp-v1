@@ -25,3 +25,12 @@ rename:
 copy:	
 	if [ ! -d $(OUTPUT_PATH) ]; then mkdir $(OUTPUT_PATH); fi
 	cp $(BUILD_PATH)/$(OUTPUT_FILENAME) $(OUTPUT_PATH)
+
+clean:
+	cd android && ./gradlew clean
+
+start:
+	npm start
+	
+debug:
+	npm run android
