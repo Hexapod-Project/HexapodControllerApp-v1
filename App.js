@@ -26,9 +26,9 @@ export const BTDATA_STATES = {
   AUTOROT_OFF: 8
 }
 
-export const BUFFER_LEN = 9;
+export const BUFFER_LEN = 5;
 
-const SENDDATA_INTERVAL = 100;
+const SENDDATA_INTERVAL = 20;
 
 let btEnabledSub, btDisableSub, btDevConnectedSub, btErrorSub;
 
@@ -107,7 +107,7 @@ class App extends React.Component {
   setAutoRotate = autoRotate => {
     this.setState({ autoRotate }, () => {
       const data = Buffer(BUFFER_LEN);
-      data[8] = autoRotate ? BTDATA_STATES.AUTOROT_ON : BTDATA_STATES.AUTOROT_OFF;
+      data[BUFFER_LEN - 1] = autoRotate ? BTDATA_STATES.AUTOROT_ON : BTDATA_STATES.AUTOROT_OFF;
       this.addData(data);
     });
   }
@@ -136,7 +136,7 @@ class App extends React.Component {
         <BluetoothBtn style={styles.bluetoothBtn} btState={this.state.btState} setBtState={this.setBtState} />
         <AutoRotateBtn style={styles.naturalWalkBtn} autoRotState={this.state.autoRotate} onPress={this.setAutoRotate} />
         <Text style={styles.name}>{displayName}</Text>
-        <JoystickCluster style={styles.joystickCluster} btState={this.state.btState} addData={this.addData} />
+        <JoystickCluster style={styles.joystickCluster} btState={this.state.btState} addData={this.addData} databuffer={this.databuffer}/>
         <Fangs style={styles.fangs} />
         <LegSelector style={styles.leftleg} options={["Tripod", "Triple", "Wave", "Ripple"]} addData={this.addData} />
         <LegSelector style={styles.rightleg} options={["Rise", "Crouch"]} startIdx={1} isFlip={true} addData={this.addData} dataFirstIndex={5} />

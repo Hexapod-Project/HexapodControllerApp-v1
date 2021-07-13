@@ -29,7 +29,7 @@ export default function LegSelector({ style, options = [], startIdx = 0, maxAngl
         setSelected(idx);
 
         const data = Buffer(BUFFER_LEN);
-        data[8] = dataFirstIndex + idx;
+        data[BUFFER_LEN - 1] = dataFirstIndex + idx;
         addData(data);
     }
 

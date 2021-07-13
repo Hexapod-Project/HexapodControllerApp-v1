@@ -10,12 +10,13 @@ export default function Joystick({ style, joystickColor = "gray", joystickWidth 
     const joystickMaxRadiusSqr = joystickMaxRadius * joystickMaxRadius;
     const joystickSize = { width: joystickWidth, borderRadius: joystickRadius };
 
+
     /**@type{Animated.ValueXY} */
     const rawTranslation = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
     const translation = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
 
     useLayoutEffect(() => {
-        rawTranslation.addListener(({ x, y }) => {
+        rawTranslation.addListener(({ x, y }) => {            
             if (x * x + y * y > joystickMaxRadiusSqr) {
                 const angle = Math.atan2(y, x);
                 x = Math.cos(angle) * joystickMaxRadius;
@@ -23,7 +24,6 @@ export default function Joystick({ style, joystickColor = "gray", joystickWidth 
             }
 
             translation.setValue({ x, y });
-
             setJoystickPosData(channel, x / joystickMaxRadius, -y / joystickMaxRadius);
         });
 
@@ -60,10 +60,10 @@ export default function Joystick({ style, joystickColor = "gray", joystickWidth 
                         transform: [{ translateX: translation.x }, { translateY: translation.y }]
                     }}>
                     <Svg width={joystickRadius} height={joystickRadius}>
-                        <Circle r={joystickRadius / 2} fill="#000" cx={joystickRadius / 2} cy={joystickRadius / 2}></Circle>                        
+                        <Circle r={joystickRadius / 2} fill="#000" cx={joystickRadius / 2} cy={joystickRadius / 2}></Circle>
                     </Svg>
-                    <Svg width={joystickRadius} height={joystickRadius} style={{position:"absolute", top:joystickRadius/10, right:0}}>
-                        <Circle r={joystickRadius/4} fill="#fff5" cx={joystickRadius / 2} cy={joystickRadius / 2}></Circle>                        
+                    <Svg width={joystickRadius} height={joystickRadius} style={{ position: "absolute", top: joystickRadius / 10, right: 0 }}>
+                        <Circle r={joystickRadius / 4} fill="#fff5" cx={joystickRadius / 2} cy={joystickRadius / 2}></Circle>
                     </Svg>
                 </Animated.View>
             </PanGestureHandler>
