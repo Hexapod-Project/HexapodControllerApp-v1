@@ -6,8 +6,6 @@ It uses bluetooth to send joystick data to the Esp32 microcontroller which is th
 
 Check the MakeFile for some useful macros for the project.
 
-Ps. The title "Hexxo" in the app is the name of the hexapod. :D
-
 ### Framework: 
 <ul>
   <li>React Native</li>
